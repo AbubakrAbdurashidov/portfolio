@@ -1,0 +1,132 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Ronaldo - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script nonce="972610f4-c02d-4f55-9ba0-4a2a5e316187">try {
+        (function (w, d) {
+            !function (b$, ca, cb, cc) {
+                b$[cb] = b$[cb] || {};
+                b$[cb].executed = [];
+                b$.zaraz = {deferred: [], listeners: []};
+                b$.zaraz.q = [];
+                b$.zaraz._f = function (cd) {
+                    return async function () {
+                        var ce = Array.prototype.slice.call(arguments);
+                        b$.zaraz.q.push({m: cd, a: ce})
+                    }
+                };
+                for (const cf of ["track", "set", "debug"]) b$.zaraz[cf] = b$.zaraz._f(cf);
+                b$.zaraz.init = () => {
+                    var cg = ca.getElementsByTagName(cc)[0], ch = ca.createElement(cc),
+                        ci = ca.getElementsByTagName("title")[0];
+                    ci && (b$[cb].t = ca.getElementsByTagName("title")[0].text);
+                    b$[cb].x = Math.random();
+                    b$[cb].w = b$.screen.width;
+                    b$[cb].h = b$.screen.height;
+                    b$[cb].j = b$.innerHeight;
+                    b$[cb].e = b$.innerWidth;
+                    b$[cb].l = b$.location.href;
+                    b$[cb].r = ca.referrer;
+                    b$[cb].k = b$.screen.colorDepth;
+                    b$[cb].n = ca.characterSet;
+                    b$[cb].o = (new Date).getTimezoneOffset();
+                    if (b$.dataLayer) for (const cm of Object.entries(Object.entries(dataLayer).reduce(((cn, co) => ({...cn[1], ...co[1]})), {}))) zaraz.set(cm[0], cm[1], {scope: "page"});
+                    b$[cb].q = [];
+                    for (; b$.zaraz.q.length;) {
+                        const cp = b$.zaraz.q.shift();
+                        b$[cb].q.push(cp)
+                    }
+                    ch.defer = !0;
+                    for (const cq of [localStorage, sessionStorage]) Object.keys(cq || {}).filter((cs => cs.startsWith("_zaraz_"))).forEach((cr => {
+                        try {
+                            b$[cb]["z_" + cr.slice(7)] = JSON.parse(cq.getItem(cr))
+                        } catch {
+                            b$[cb]["z_" + cr.slice(7)] = cq.getItem(cr)
+                        }
+                    }));
+                    ch.referrerPolicy = "origin";
+                    ch.src = "https://preview.colorlib.com/cdn-cgi/zaraz/s.js?z=" + btoa(encodeURIComponent(JSON.stringify(b$[cb])));
+                    cg.parentNode.insertBefore(ch, cg)
+                };
+                ["complete", "interactive"].includes(ca.readyState) ? zaraz.init() : b$.addEventListener("DOMContentLoaded", zaraz.init)
+            }(w, d, "zarazData", "script");
+        })(window, document)
+    } catch (err) {
+        console.error('Failed to run Cloudflare Zaraz: ', err)
+        fetch('/cdn-cgi/zaraz/t', {
+            credentials: 'include',
+            keepalive: true,
+            method: 'GET',
+        })
+    }
+    ;</script>
+</head>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+{% include 'navbar.html' %}
+
+{% block content %}
+
+{% endblock %}
+
+{% include 'footer.html' %}
+
+
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/aos.js' %}"></script>
+<script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
+<script src="{% static 'js/scrollax.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'UA-23581568-13');
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317"
+        integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA=="
+        data-cf-beacon='{"rayId":"84c94c2c7c3e1923","b":1,"version":"2024.1.0","token":"cd0b4b3a733644fc843ef0b185f98241"}'
+        crossorigin="anonymous"></script>
+</body>
+
+<!-- Mirrored from preview.colorlib.com/theme/ronaldo/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 28 Jan 2024 12:39:35 GMT -->
+</html>
