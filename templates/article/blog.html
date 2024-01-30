@@ -1,17 +1,137 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>404 Not Found</title>
-<script nonce="d7a9c3e5-5748-4fdf-bb77-259e70bec757">try { (function(w,d){!function(b$,ca,cb,cc){b$[cb]=b$[cb]||{};b$[cb].executed=[];b$.zaraz={deferred:[],listeners:[]};b$.zaraz.q=[];b$.zaraz._f=function(cd){return async function(){var ce=Array.prototype.slice.call(arguments);b$.zaraz.q.push({m:cd,a:ce})}};for(const cf of["track","set","debug"])b$.zaraz[cf]=b$.zaraz._f(cf);b$.zaraz.init=()=>{var cg=ca.getElementsByTagName(cc)[0],ch=ca.createElement(cc),ci=ca.getElementsByTagName("title")[0];ci&&(b$[cb].t=ca.getElementsByTagName("title")[0].text);b$[cb].x=Math.random();b$[cb].w=b$.screen.width;b$[cb].h=b$.screen.height;b$[cb].j=b$.innerHeight;b$[cb].e=b$.innerWidth;b$[cb].l=b$.location.href;b$[cb].r=ca.referrer;b$[cb].k=b$.screen.colorDepth;b$[cb].n=ca.characterSet;b$[cb].o=(new Date).getTimezoneOffset();if(b$.dataLayer)for(const cm of Object.entries(Object.entries(dataLayer).reduce(((cn,co)=>({...cn[1],...co[1]})),{})))zaraz.set(cm[0],cm[1],{scope:"page"});b$[cb].q=[];for(;b$.zaraz.q.length;){const cp=b$.zaraz.q.shift();b$[cb].q.push(cp)}ch.defer=!0;for(const cq of[localStorage,sessionStorage])Object.keys(cq||{}).filter((cs=>cs.startsWith("_zaraz_"))).forEach((cr=>{try{b$[cb]["z_"+cr.slice(7)]=JSON.parse(cq.getItem(cr))}catch{b$[cb]["z_"+cr.slice(7)]=cq.getItem(cr)}}));ch.referrerPolicy="origin";ch.src="/cdn-cgi/zaraz/s.js?z="+btoa(encodeURIComponent(JSON.stringify(b$[cb])));cg.parentNode.insertBefore(ch,cg)};["complete","interactive"].includes(ca.readyState)?zaraz.init():b$.addEventListener("DOMContentLoaded",zaraz.init)}(w,d,"zarazData","script");})(window,document) } catch (err) {
-      console.error('Failed to run Cloudflare Zaraz: ', err)
-      fetch('/cdn-cgi/zaraz/t', {
-        credentials: 'include',
-        keepalive: true,
-        method: 'GET',
-      })
-    };</script></head><body>
-<h1>Not Found</h1>
-<p>The requested URL was not found on this server.</p>
-<hr>
-<address>Apache/2.4.41 (Ubuntu) Server at preview.colorlib.com Port 443</address>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"84c94dbd5e6804d0","b":1,"version":"2024.1.0","token":"cd0b4b3a733644fc843ef0b185f98241"}' crossorigin="anonymous"></script>
-</body></html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+    <div class="hero-wrap js-fullheight">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text js-fullheight justify-content-center align-items-center">
+                <div class="col-lg-10 ftco-animate d-flex align-items-center">
+                    <div class="text text-center">
+                        <h1 class="mb-3 bread">Blogs</h1>
+                        <p class="breadcrumbs"><span class="mr-2"><a href="index-2.html">Home <i
+                                class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="blog.html">Blog <i
+                                class="ion-ios-arrow-forward"></i></a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="ftco-section">
+        <div class="container" id="articles">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="row" >
+                        {% for article in page_obj %}
+                        	<div class="col-lg-6 d-flex ftco-animate">
+                        <div class="blog-entry justify-content-end">
+                            {% if article.image %}
+                            	<a href="{% url 'article:detail' article.slug %}" class="block-20"
+                               style="background-image: url({{ article.image.url }});">
+                            {% endif %} 
+                            </a>
+                            <div class="text mt-3 float-right d-block">
+                                <h3 class="heading"><a href="{% url 'article:detail' article.slug %}">{{ article.title|slice:"50" }}</a>
+                                </h3>
+                                <div class="d-flex align-items-center mb-3 meta">
+                                    <p class="mb-0">
+                                        <span class="mr-2">{{ article.created_date|date:"M. d, Y" }}</span>
+                                        <a href="{% url 'article:detail' article.slug %}" class="mr-2">{{ article.author.name }}</a>
+                                        <a href="{% url 'article:detail' article.slug %}" class="meta-chat"><span class="icon-chat"></span> 3</a>
+                                    </p>
+                                </div>
+                                <p>{{ article.header_content|safe|slice:"100" }}</p>
+                            </div>
+                        </div>
+                    </div>
+                        {% endfor %}
+                        
+                    </div>
+                
+                </div>
+            
+            
+
+                <div class="col-lg-4 sidebar ftco-animate">
+                    <div class="sidebar-box">
+                        <form action="#" class="search-form">
+                            <div class="form-group">
+                                <span class="icon icon-search"></span>
+                                <input type="text" class="form-control" name="q" placeholder="Search...">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="sidebar-box ftco-animate">
+                        <h3 class="heading-sidebar">Categories</h3>
+                        <ul class="categories">
+                           {% for category in categories %}
+                           	     <li><a href="{% url 'article:blog' %}?cat={{ category.title }}#articles">{{ category.title }}<span>({{ category.article_set.count }})</span></a></li>
+                           {% endfor %}
+                           
+                        </ul>
+                    </div>
+                    <div class="sidebar-box ftco-animate">
+                        <h3 class="heading-sidebar">Recent Blog</h3>
+                        {% for sidebar_article in sidebar_articles %}
+                        	<div class="block-21 mb-4 d-flex">
+                            {% if sidebar_article.image %}
+                            	<a href="{% url 'article:detail' sidebar_article.slug %}" class="blog-img mr-4" style="background-image: url({{ sidebar_article.image.url }});"></a>
+                            {% endif %} 
+                            <div class="text">
+                                <h3 class="heading"><a href="{% url 'article:detail' sidebar_article.slug %}">{{ sidebar_article.title|slice:"30" }}</a></h3>
+                                <div class="meta">
+                                    <div><a href="{% url 'article:detail' sidebar_article.slug %}"><span class="icon-calendar"></span>{{ sidebar_article.created_date|date:"M. d, Y" }}</a></div>
+                                    <div><a href="{% url 'article:detail' sidebar_article.slug %}"><span class="icon-person"></span> {{ sidebar_article.author.name }}</a></div>
+                                    <div><a href="{% url 'article:detail' sidebar_article.slug %}"><span class="icon-chat"></span> {{ sidebar_article.comments.count }}</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        
+                        
+                    </div>
+                    <div class="sidebar-box ftco-animate">
+                        <h3 class="heading-sidebar">Tag Cloud</h3>
+                        <div class="tagcloud">
+                           {% for tag in tags %}
+                           	     <a href="{% url 'article:blog' %}?tag={{ tag.title }}#articles" class="tag-cloud-link">{{ tag.title }}</a>
+                           {% endfor %}
+                           
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="demo">
+    <nav class="pagination-outer" aria-label="Page navigation">
+        <ul class="pagination">
+            <li class="page-item">
+                {% if page_obj.has_previous %}
+                	<a href="?page={{ page_obj.previous_page_number }}" class="page-link" aria-label="Previous">
+                    <span aria-hidden="true">«</span>
+                </a>
+                {% endif %}
+            </li>
+
+
+
+            {% for page_number in page_obj.paginator.page_range %}
+            	 <li class="{% if page_obj.number == page_number %}active{% endif %}"><a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a></li>
+            {% endfor %}
+
+
+
+
+
+            <li class="page-item">
+                {% if page_obj.has_next %}
+                	<a href="?page={{ page_obj.next_page_number }}" class="page-link" aria-label="Next">
+                    <span aria-hidden="true">»</span>
+                </a>
+                {% endif %}
+    </section>
+
+{% endblock %}
