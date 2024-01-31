@@ -13,6 +13,7 @@ def blog_view(request):
     q = request.GET.get('q')
     paginator = Paginator(articles, 6)
     page = request.GET.get('page')
+    txt = ' '
     page_obj = paginator.get_page(page)
     categories = Category.objects.all()
     tags = Tag.objects.all()
@@ -21,7 +22,7 @@ def blog_view(request):
         page_obj = articles.filter(title__icontains=q)
     if cat:
         page_obj = articles.filter(category__title__exact=cat)
-
+        txt = cat
     if tag:
         page_obj = articles.filter(tags__title__exact=tag)
     ctx = {
@@ -29,6 +30,7 @@ def blog_view(request):
         'articles': articles,
         'sidebar_articles': sidebar_articles,
         'categories': categories,
+        'title': txt,
         'tags': tags
     }
     return render(request, 'article/blog.html', ctx)

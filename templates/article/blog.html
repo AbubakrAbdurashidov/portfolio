@@ -10,17 +10,32 @@
             <div class="row no-gutters slider-text js-fullheight justify-content-center align-items-center">
                 <div class="col-lg-10 ftco-animate d-flex align-items-center">
                     <div class="text text-center">
-                        <h1 class="mb-3 bread">Blogs</h1>
+                        <h1 class="mb-3 bread" >Blogs</h1>
                         <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'main:index' %}">Home <i
                                 class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="blog.html">Blog <i
-                                class="ion-ios-arrow-forward"></i></a></span>
+                                class="ion-ios-arrow-forward" ></i></a></span>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
+    
+    <section class="breadcrumb breadcrumb_bg" id="articles" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mt-5">
+                    <div class="breadcrumb_iner text-center">
+                        <div class="breadcrumb_iner_item">
+                            	<h2>{{ title }}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <section class="ftco-section">
-        <div class="container" id="articles">
+        <div class="container" >
             <div class="row">
                 <div class="col-lg-8">
                     <div class="row" >
