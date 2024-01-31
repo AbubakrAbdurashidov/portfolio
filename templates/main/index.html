@@ -77,7 +77,7 @@
 
                         <h2>I'm a
                             <span class="txt-rotate" data-period="2000"
-                                  data-rotate={% for subject in subject %}"[ &quot;{{ subject.title }}.&quot; ]"{% endfor %}></span>
+                                  data-rotate="[{% for sub in subject %}&quot;{{ sub.title }}.&quot;, {% endfor %}&quot;&quot;]"></span>
                         </h2>
 
                     </div>
@@ -142,7 +142,7 @@
             <div class="row">
                 {% for partner in partners %}
                     <div class="col-sm ftco-animate">
-                        <a href="#" class="partner"><img src="{{ partner.image.url }}" class="img-fluid"
+                        <a href="{% if partner.link %}{{ partner.link }}{% else %}#{% endif %}" class="partner"><img src="{{ partner.image.url }}" class="img-fluid"
                                                          alt=""></a>
                     </div>
                 {% endfor %}

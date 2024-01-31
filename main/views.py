@@ -30,9 +30,13 @@ def index(request):
     top_skill = TopSkill.objects.order_by('-id')[:3]
     skills = Skill.objects.order_by('-id')[:6]
     subject = Subject.objects.all()
+    # arr = "["
+    # for sub in subject:
+    #     arr.append(f"""""")
     form = ContactForm()
     about = About.objects.order_by('-id')[:1]
     partners = Partner.objects.order_by('-id')[:5]
+
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():

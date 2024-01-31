@@ -1,7 +1,6 @@
 from django.db import models
 
 
-
 class Subject(models.Model):
     title = models.CharField(max_length=255)
 
@@ -34,6 +33,7 @@ class About(models.Model):
 
 class Partner(models.Model):
     image = models.ImageField(upload_to='media/partners', blank=True, null=True)
+    link = models.URLField(blank=True)
 
 
 class Education(models.Model):
@@ -105,8 +105,9 @@ class Category(models.Model):
 class Project(models.Model):
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
     title = models.CharField(max_length=255)
+    link = models.URLField(max_length=255, blank=True, null=True)
     image = models.ImageField(upload_to='media/projects', blank=True, null=True)
-    project_link = models.URLField(max_length=255, blank=True, null=True)
+
 
     def __str__(self):
         return self.title
