@@ -34,7 +34,7 @@
                     
                     <ul class="list-unstyled">
                         {% for service in services %}
-                        	<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>{{ service.title }}</a></li>
+                        	<li><a href="{% url 'main:index' %}#services-section"><span class="icon-long-arrow-right mr-2"></span>{{ service.title }}</a></li>
                       
                         
                          {% endfor %}

@@ -2944,6 +2944,8 @@ textarea.form-control {
     font-family: 'Abel', sans-serif;
     display: inline-flex;
     position: relative;
+    list-style-type: none ;
+
 }
 .pagination li a.page-link{
     color: #555;
@@ -3002,5 +3004,6 @@ textarea.form-control {
         display: inline-block;
         vertical-align: top;
         margin: 0 0 10px;
+
     }
 }
