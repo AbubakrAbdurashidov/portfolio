@@ -29,6 +29,7 @@ class About(models.Model):
     phone = models.CharField(max_length=55)
     complete_projects = models.IntegerField(default=0)
     website = models.URLField(blank=True)
+    CV = models.FileField(blank=True, null=True, upload_to='media/about')
 
 
 class Partner(models.Model):
